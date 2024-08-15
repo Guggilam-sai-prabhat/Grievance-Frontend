@@ -29,14 +29,17 @@ const Login = () => {
             body: JSON.stringify({ email, password })
         });
 
+        console.log("Response received", res.status);
+
         if (!res.ok) {
-            const errorData = await res.json(); // Parse error message only if the content is expected to be JSON
-            console.error('Server error:', errorData.message || 'Unknown error');
-            window.alert(`Error: ${errorData.message || 'Server error'}`);
+            const text = await res.text(); // Use text to see raw response
+            console.error('Server error:', text);
+            window.alert(`Error: ${text}`);
             return;
         }
 
-        const data = await res.json(); // Safe to parse JSON here as response was successful
+        const data = await res.json(); // This assumes the response is successful and contains JSON
+        console.log("Data parsed", data);
         Cookies.set('jwtoken', data.token, { path: '/' });
         dispatch({ type: 'USER', payload: true });
         window.alert("Login Successful");

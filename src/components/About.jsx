@@ -11,7 +11,7 @@ const About=()=>{
 
     const callAboutPage=async()=>{
        try{
-         const res = await fetch("https://grievance-backend-ptts.onrender.com/about",{
+         const res = await fetch("about",{
             method: "GET",
             headers:{
                 Accept: "application/json",

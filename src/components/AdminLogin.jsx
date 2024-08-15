@@ -1,72 +1,47 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import "..//styles/AdminLogin.css";
+import "../styles/AdminLogin.css"; // Ensure the CSS file is imported
 
-const AdminLogin =()=>{
-    const [email,setEmail]=useState('');
-    const [password,setPassword]=useState('');
-
-    const history=useHistory();
+const AdminLogin = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const history = useHistory();
     
-    const getAccess=()=>{
-        if(email==="admin@gmail.com" && password==="admin"){
-            window.alert("Login Successful");
+    const getAccess = (e) => {
+        e.preventDefault(); // Prevent form submission to see animations
+        if(email === "admin@gmail.com" && password === "admin"){
+            alert("Login Successful");
             history.push("/aAbBcC");
-        }
-        else if(email==="admin.edu@gmail.com" && password==="education"){
-           window.alert("Login Successful");
-            history.push("/education"); 
-        }
-        else if(email==="admin.health@gmail.com" && password==="health"){
-            window.alert("Login Successful");
-             history.push("/health"); 
-         }
-         else if(email==="admin.service@gmail.com" && password==="service"){
-            window.alert("Login Successful");
-             history.push("/service"); 
-         }
-        else{
-            window.alert("You don't have this access");
+        } else if(email === "admin.edu@gmail.com" && password === "education"){
+            alert("Login Successful");
+            history.push("/education");
+        } else if(email === "admin.health@gmail.com" && password === "health"){
+            alert("Login Successful");
+            history.push("/health");
+        } else if(email === "admin.service@gmail.com" && password === "service"){
+            alert("Login Successful");
+            history.push("/service");
+        } else {
+            alert("You don't have this access");
         }
     }
-    return(
-        <>
-        <h1 className="text-center my-1">Admin Login</h1>
-        <hr />
 
-        <form method="GET">
-        <div className="form-group text-center jumbotron mx-5">
-        <small>the creds are: admin@gmail.com & admin</small>
-        <div >
-                <label htmlFor="email">
-                Email ID:
-                </label>
-                <input type="email" name="email" id="email" autoComplete="off" 
-                value={email}
-                onChange={(e)=> setEmail(e.target.value)}
-                placeholder="Your email ID here" className='mx-2'></input>
-              </div>
-              
-              <br />
-              <div className="form-group">
-                <label htmlFor="password">
-                Password: 
-                </label>
-                <input type="password" name="password" id="password" autoComplete="off" 
-                value={password}
-                onChange={(e)=>setPassword(e.target.value)}
-                placeholder="Enter your password" className='mx-1'></input>
-              </div>
-<br />
-             <div className="form-group form-button">
-                <input type="submit" name="signin" id="signin" className="form-submit btn btn-outline-primary"
-                onClick={getAccess} value="Log In"/>
-              </div>
-              </div>
-        </form>
-        
-        </>
-    )
-} 
+    return (
+        <div className="login-container">
+            <h1 className="text-center">Admin Login</h1>
+            <form className="login-form">
+                <div className="input-group">
+                    <label>Email ID:</label>
+                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Your email ID here" />
+                </div>
+                <div className="input-group">
+                    <label>Password:</label>
+                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password" />
+                </div>
+                <button type="submit" onClick={getAccess}>Log In</button>
+            </form>
+        </div>
+    );
+}
 
 export default AdminLogin;

@@ -8,7 +8,7 @@ const Home = () => {
 
     const userHome = async () => {
         try {
-            const res = await fetch("https://grievance-backend-ptts.onrender.com/getdata", {
+            const res = await fetch("getdata", {
                 method: "GET",
                 headers: {
                     Accept: "application/json",

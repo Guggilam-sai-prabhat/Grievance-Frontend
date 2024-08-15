@@ -11,7 +11,7 @@ const GrievanceStatus=()=>{
 
     const getData=async()=>{
         try{
-         const res=await fetch("https://grievance-backend-ptts.onrender.com/grievancelist",{
+         const res=await fetch("grievancelist",{
             method: "GET",
             headers:{
                 Accept: "application/json",

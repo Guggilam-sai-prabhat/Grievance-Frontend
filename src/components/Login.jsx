@@ -17,12 +17,12 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const loginUser = async (e) => {
+ const loginUser = async (e) => {
     e.preventDefault();
 
     try {
         const res = await fetch('signin', {
-            method: 'POST',
+            method: 'POST',  // Ensure this is the method expected by the server
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
@@ -31,11 +31,14 @@ const Login = () => {
         });
 
         if (!res.ok) {
-            throw new Error('Server responded with an error!');
+            // Try to parse error message from the server if available
+            const errorData = await res.json();
+            console.error('Server error:', errorData.message || 'Unknown error');
+            window.alert(`Error: ${errorData.message || 'Server error'}`);
+            return;
         }
 
-        const data = await res.json(); // Only parse JSON if the response was okay
-
+        const data = await res.json();  // Parse JSON only if the response was successful
         Cookies.set('jwtoken', data.token, { path: '/' });
         dispatch({ type: 'USER', payload: true });
         window.alert("Login Successful");
@@ -45,6 +48,7 @@ const Login = () => {
         window.alert("Invalid Credentials or Server Error");
     }
 };
+
 
   return (
 

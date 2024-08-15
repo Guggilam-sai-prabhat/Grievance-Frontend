@@ -19,10 +19,9 @@ const Login = () => {
 
  const loginUser = async (e) => {
     e.preventDefault();
-
     try {
         const res = await fetch('signin', {
-            method: 'POST',  // Ensure this is the method expected by the server
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
@@ -31,14 +30,13 @@ const Login = () => {
         });
 
         if (!res.ok) {
-            // Try to parse error message from the server if available
-            const errorData = await res.json();
+            const errorData = await res.json(); // Parse error message only if the content is expected to be JSON
             console.error('Server error:', errorData.message || 'Unknown error');
             window.alert(`Error: ${errorData.message || 'Server error'}`);
             return;
         }
 
-        const data = await res.json();  // Parse JSON only if the response was successful
+        const data = await res.json(); // Safe to parse JSON here as response was successful
         Cookies.set('jwtoken', data.token, { path: '/' });
         dispatch({ type: 'USER', payload: true });
         window.alert("Login Successful");

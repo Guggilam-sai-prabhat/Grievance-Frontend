@@ -1,0 +1,90 @@
+/* General Body Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif; /* Consistent font */
+    background: #f4f4f4; /* Light grey background */
+  }
+  
+  /* Container for Profile */
+  .profile-container {
+    max-width: 960px; /* Optimal width for most screens */
+    margin: 20px auto; /* Centering */
+    padding: 20px;
+    background-color: #fff; /* White background for the content */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Headings */
+  h1.text-center {
+    color: #333; /* Dark grey for contrast */
+    text-align: center;
+  }
+  
+  /* Underlined Titles */
+  .profile-section h3 {
+    color: #007bff; /* Blue for headers */
+    text-decoration: underline;
+    padding-bottom: 5px; /* Space under the underline */
+    margin-top: 20px; /* Spacing above the section title */
+  }
+  
+  /* Profile Sections */
+  .profile-section {
+    background-color: #f8f8f8; /* Light gray for sections */
+    border-left: 5px solid #007bff; /* Accent border */
+    padding: 15px;
+    margin-top: 10px;
+  }
+  
+  .profile-section p, .profile-section h4 {
+    font-size: 16px;
+    color: #666; /* Slightly lighter than black for readability */
+    margin-bottom: 5px;
+  }
+  
+  /* Styling for Tables */
+  .table-dark {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .table-dark th, .table-dark td {
+    padding: 10px;
+    border: 1px solid #fff;
+  }
+  
+  /* Sticky Footer */
+  .contact_info {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40; /* Dark background */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  /* Icons in Contact Info */
+  .contact_info_item img {
+    display: block;
+    margin: auto;
+    height: 50px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .profile-container {
+      margin: 10px;
+      padding: 10px;
+    }
+  
+    .profile-section h3 {
+      font-size: 18px; /* Larger font for small screens */
+    }
+  }
+  

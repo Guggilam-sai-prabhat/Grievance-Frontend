@@ -1,0 +1,57 @@
+/* Basic Reset for margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* Ensuring consistent font family */
+}
+
+html, body {
+    height: 100%; /* Ensures full viewport height */
+    margin: 0;
+    padding: 0;
+}
+
+
+.content {
+    flex: 1; /* Allows this element to expand and take available space, pushing the footer down */
+    padding: 20px; /* Provides padding around the content */
+}
+
+.container {
+    max-width: 960px;
+    margin: auto; /* Centers the container within any parent element */
+    padding: 20px;
+    background-color: #ffffff; /* Sets a white background */
+    border-radius: 8px; /* Rounded corners for aesthetics */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.contact_info {
+    background-color: #343a40; /* Dark background for the footer */
+    color: white;
+    text-align: center; /* Center aligns the footer content */
+    padding: 10px 0; /* Padding top and bottom */
+    width: 100%; /* Ensures it spans the full width of the viewport */
+}
+
+.contact_form_title h2 {
+    text-align: center;
+    color: #4A90E2; /* Soft blue for a less aggressive tone */
+   
+}
+
+.btn-outline-primary {
+    display: block; /* Makes the button block level, filling the container width */
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff; /* Blue background */
+    color: white;
+    border-radius: 4px; /* Rounded corners for the button */
+    border: none; /* No border for a cleaner look */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.btn-outline-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

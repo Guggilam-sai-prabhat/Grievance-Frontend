@@ -1,0 +1,44 @@
+/* General Page Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Replace with Google Fonts if needed */
+    background: #f4f4f4; /* Light grey background for the page */
+  }
+  
+  /* Flexbox Container for centering */
+  .home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Image Styling */
+  .img-responsive {
+    max-width: 100%; /* Ensures the image is never bigger than the container */
+    height: auto; /* Keeps the aspect ratio of the image */
+    border-radius: 10px; /* Optional: Rounds the corners of the image */
+  }
+  
+  /* Text Styling */
+  .maintext {
+    color: #333;
+    font-size: 24px; /* Larger text size for main text */
+    margin: 20px;
+    flex-grow: 1; /* Ensures the text can expand */
+  }
+  
+  /* Responsive Design Adjustments */
+  @media (max-width: 768px) {
+    .home-container {
+      flex-direction: column; /* Stacks the image and text vertically on small screens */
+    }
+  
+    .maintext {
+      font-size: 18px; /* Smaller font size for small devices */
+    }
+  }
+  

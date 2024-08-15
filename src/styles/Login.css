@@ -1,0 +1,72 @@
+/* General styling to ensure the page uses all available height */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Container styling to center content */
+  .container {
+    flex-grow: 1;  /* Allows container to grow and fill available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Centers content vertically */
+    align-items: center;  /* Centers content horizontally */
+  }
+  
+  /* Login form styling for aesthetics */
+  .signup-content {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 100%;  /* Full width or adjust as necessary */
+    max-width: 500px;  /* Maximum width of the form */
+  }
+  
+  /* Input styling for better appearance */
+  input[type="email"], input[type="password"] {
+    width: 100%;  /* Full width of container */
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Button styling for better interaction feedback */
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styling for the contact info at the bottom of the page */
+  .contact_info {
+    width: 100%;
+    background-color: #333;  /* Dark background for the footer area */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  .contact_info_item {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  .contact_info_item img {
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  

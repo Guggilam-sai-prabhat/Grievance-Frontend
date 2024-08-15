@@ -20,28 +20,32 @@ const Login = () => {
   const loginUser = async (e) => {
     e.preventDefault();
 
-    const res = await fetch('signin', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        'Accept': 'application/json'
-      },
+    try {
+        const res = await fetch('signin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
 
-      body: JSON.stringify({
-        email, password
-      })
-    });
-    const data = await res.json();
+        if (!res.ok) {
+            throw new Error('Server responded with an error!');
+        }
 
-    if (res.status === 400 || !data) {
-      window.alert("Invalid Credentials");
-    } else {
-      Cookies.set('jwtoken', data.token, { path: '/' });
-      dispatch({ type: "USER", payload: true })
-      window.alert("Login Successful");
-      history.push("/");
+        const data = await res.json(); // Only parse JSON if the response was okay
+
+        Cookies.set('jwtoken', data.token, { path: '/' });
+        dispatch({ type: 'USER', payload: true });
+        window.alert("Login Successful");
+        history.push("/");
+    } catch (error) {
+        console.error('Error logging in:', error);
+        window.alert("Invalid Credentials or Server Error");
     }
-  }
+};
+
   return (
 
     <>

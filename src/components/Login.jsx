@@ -17,38 +17,31 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
- const loginUser = async (e) => {
+  const loginUser = async (e) => {
     e.preventDefault();
-    try {
-        const res = await fetch('signin', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({ email, password })
-        });
 
-        console.log("Response received", res.status);
+    const res = await fetch('signin', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        email, password
+      })
+    });
 
-        if (!res.ok) {
-            const text = await res.text(); // Use text to see raw response
-            console.error('Server error:', text);
-            window.alert(`Error: ${text}`);
-            return;
-        }
+    const data = await res.json();
 
-        const data = await res.json(); // This assumes the response is successful and contains JSON
-        console.log("Data parsed", data);
-        Cookies.set('jwtoken', data.token, { path: '/' });
-        dispatch({ type: 'USER', payload: true });
-        window.alert("Login Successful");
-        history.push("/");
-    } catch (error) {
-        console.error('Error logging in:', error);
-        window.alert("Invalid Credentials or Server Error");
+    if (res.status === 400 || !data) {
+      window.alert("Invalid Credentials");
+    } else {
+      Cookies.set('jwtoken', data.token, { path: '/' });
+      dispatch({ type: 'USER', payload: true });
+      window.alert("Login Successful");
+      history.push('/');
     }
-};
+  };
 
 
   return (

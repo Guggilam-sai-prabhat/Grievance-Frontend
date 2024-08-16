@@ -12,7 +12,7 @@ const UpdateDocs=()=>{
     const getGrievance=async(e)=>{
       e.preventDefault();
       try{
-       const res=await fetch('grievancelist',{
+       const res=await fetch('/grievancelist',{
         method: "GET",
         headers:{
             Accept: "application/json",
@@ -41,7 +41,7 @@ const UpdateDocs=()=>{
         e.preventDefault();
         try{
             //?_id=${_id}gId=${gId}&status=${status}&feedback=${feedback}
-         const res=await fetch(`aAbBcC/updatedocs`,{
+         const res=await fetch(`/aAbBcC/updatedocs`,{
             method: "POST",
             headers:{
                 "Content-Type":"application/json",

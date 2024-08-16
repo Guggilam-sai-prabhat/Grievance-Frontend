@@ -17,7 +17,7 @@ const Login = () => {
   const loginUser = async (e) => {
     e.preventDefault();
 
-    const res = await fetch('signin', {
+    const res = await fetch('https://grievance-backend-1.onrender.com/signin', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",

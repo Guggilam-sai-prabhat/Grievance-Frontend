@@ -2,9 +2,6 @@ import React, { useContext, useState } from 'react';
 import login from '../images/login.gif';
 import { NavLink, useHistory } from 'react-router-dom';
 import { UserContext } from '../App';
-import phone from '../images/telephone.png';
-import mail from '../images/email.png';
-import address from '../images/address.png';
 import Cookies from 'js-cookie';
 // import "../styles/Login.css";
 
@@ -21,27 +18,30 @@ const Login = () => {
     e.preventDefault();
 
     const res = await fetch('signin', {
-      method: "POST",
+      method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        'Accept': 'application/json'
+        'Accept': 'application/json',
       },
-
       body: JSON.stringify({
         email, password
       })
     });
-    const data = await res.json();
+
+    const data = res.ok ? await res.json() : null;
 
     if (res.status === 400 || !data) {
       window.alert("Invalid Credentials");
     } else {
       Cookies.set('jwtoken', data.token, { path: '/' });
-      dispatch({ type: "USER", payload: true })
+      dispatch({ type: 'USER', payload: true });
       window.alert("Login Successful");
-      history.push("/");
+      history.push('/');
     }
-  }
+  };
+
+
+
   return (
 
     <>

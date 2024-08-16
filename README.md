@@ -10,7 +10,7 @@ This is the frontend for the Grievance Portal application, built using React. Th
 
 ## Demo
 
-[Watch a demo of the application] (./demo/your-demo-video.mp4).
+[Watch a demo of the application] (./demo/DEMO.mp4).
 
 
 ## Backend Repository

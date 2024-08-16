@@ -9,8 +9,9 @@ This is the frontend for the Grievance Portal application, built using React. Th
 - **Automation Mail**: Automatically sends email confirmations to users after they submit a grievance or any update on grievance (You can see in Backend Code).
 
 ## Demo
+https://github.com/user-attachments/assets/f8fec24b-ca04-4c69-893f-2bad5267309d
 
-[Watch a demo of the application](./Demo/DEMO.mp4).
+
 
 
 ## Backend Repository
